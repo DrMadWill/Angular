@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lesson-2-create-project": {
+    "todoapp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/lesson-2-create-project",
+            "outputPath": "dist/todoapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,14 +23,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "src/assets/css/styles.css"
-
-
+              "src/styles.css"
+              ,"./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "src/assets/js/scripts.js"
-
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
@@ -70,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "lesson-2-create-project:build:production"
+              "browserTarget": "todoapp:build:production"
             },
             "development": {
-              "browserTarget": "lesson-2-create-project:build:development"
+              "browserTarget": "todoapp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lesson-2-create-project:build"
+            "browserTarget": "todoapp:build"
           }
         },
         "test": {

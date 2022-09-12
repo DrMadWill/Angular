@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3 class=" bg-primary text-white p-3">
+        {{getName()}} To Do List
+      </h3>
+      <div class="input-group">
+        <input type="text" class="form-control">
+        <div class="input-group-append">
+          <button class="btn btn-primary">Add</button>
+        </div>
+      </div>
+
+      <table class="table table-striped table-bordered text-center mt-3">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Description</th>
+            <th>Action</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let item of getItems(); let i = index">
+            <td>{{i+1}}</td>
+            <td>{{item.description}}</td>
+            <td>
+              <button class="btn m-2 btn-success"> Complated </button>
+              <button class="btn m-2 btn-danger">Not Complated </button>
+              <button class="btn m-2 btn-warning"> Waiting </button>
+            </td>
+            <td>
+              <i class="{{item.result}}"></i>
+            </td>
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
