@@ -1,0 +1,7 @@
+.close{
+  cursor: pointer;
+  color: #000
+}
+.close:hover{
+  color: red;
+}

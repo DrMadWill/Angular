@@ -1,3 +1,30 @@
-<h2>Movies Lis</h2>
+
+<div class="card my-2" *ngIf="selectedMovie">
+  <div class="card-body">
+      <span class="badge badge-primary">
+        Id: {{selectedMovie.id}} Name : {{selectedMovie.name}}
+      </span>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header bg-success font-weight-bold text-white">
+    {{getTitle()}}
+  </div>
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+
+      <li class="list-group-item" (click)="onSelect(movie)"
+      *ngFor="let movie of movies"
+      [class.active]="movie == selectedMovie"
+      >
+          <span class=" badge badge-success">{{movie.id}}</span>
+         {{" - " + movie.name}}
+         <span class="close">x</span>
+      </li>
+
+    </ul>
+  </div>
+</div>
 <movie></movie>
 <movie></movie>
