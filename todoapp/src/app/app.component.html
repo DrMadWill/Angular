@@ -5,10 +5,15 @@
         {{getName()}} To Do List
       </h3>
       <div class="input-group">
-        <input type="text" class="form-control">
+        <input type="text" #toDoText class="form-control">
         <div class="input-group-append">
-          <button class="btn btn-primary">Add</button>
+          <button class="btn btn-primary" (click)="addItem(toDoText.value); toDoText.value =''">Add</button>
         </div>
+      </div>
+
+      <div class="custom-control custom-checkbox my-2">
+        <input id="displayAll" class=" custom-control-input" type="checkbox" [(ngModel)]="isDisblay">
+        <label class=" custom-control-label" for="displayAll">Display</label>
       </div>
 
       <table class="table table-striped table-bordered text-center mt-3">
@@ -26,18 +31,17 @@
             <td>{{i+1}}</td>
             <td>{{item.description}}</td>
             <td>
-              <button class="btn m-2 btn-success"> Complated </button>
-              <button class="btn m-2 btn-danger">Not Complated </button>
-              <button class="btn m-2 btn-warning"> Waiting </button>
+               <input type="checkbox" class="form-control" [(ngModel)]="item.result">
             </td>
-            <td>
-              <i class="{{item.result}}"></i>
+            <td [ngSwitch]="item.result">
+              <span *ngSwitchCase="true">
+                <i class="text-success fa-solid fa-circle-check"></i>
+              </span>
+              <span *ngSwitchCase="false">
+                <i class="text-warning fa-solid fa-circle-pause"></i>
+              </span>
             </td>
           </tr>
-
-
-
-
         </tbody>
       </table>
 
