@@ -1,11 +1,5 @@
 
-<div class="card my-2" *ngIf="selectedMovie">
-  <div class="card-body">
-      <span class="badge badge-primary">
-        Id: {{selectedMovie.id}} Name : {{selectedMovie.name}}
-      </span>
-  </div>
-</div>
+<movie-detail [movie] = "selectedMovie" ></movie-detail>
 
 <div class="card">
   <div class="card-header bg-success font-weight-bold text-white">

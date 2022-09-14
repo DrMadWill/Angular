@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
-import { Movies } from "../data/movie.datasource";
 import { Movie } from "../models/movie";
+import { MovieService } from "../movie.service";
+
 
 @Component({
   selector:"movies",
@@ -10,16 +11,25 @@ import { Movie } from "../models/movie";
 export class MoviesComponent{
   title = "Movie List"
 
+
+  movies!: Movie[]
+  selectedMovie!:Movie;
+
+
+  constructor(private moviesService: MovieService){ }
+
   getTitle():string{
     return this.title
   }
-  movies : Movie[] = Movies
-
-  selectedMovie!:Movie;
 
   onSelect(movie:Movie):void{
     this.selectedMovie = movie;
   }
+
+  ngOnInit(): void {
+    this.movies =  this.moviesService.getMovies();
+  }
+
 }
 
 
