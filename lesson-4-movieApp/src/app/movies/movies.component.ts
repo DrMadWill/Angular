@@ -27,7 +27,8 @@ export class MoviesComponent{
   }
 
   ngOnInit(): void {
-    this.movies =  this.moviesService.getMovies();
+   this.moviesService.getMovies()
+            .subscribe(movies => this.movies = movies);
   }
 
 }

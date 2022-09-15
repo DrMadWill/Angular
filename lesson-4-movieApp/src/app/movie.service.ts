@@ -1,6 +1,7 @@
 import { Movie } from './models/movie';
 import { Injectable } from '@angular/core';
 import { Movies } from './data/movie.datasource';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,8 @@ import { Movies } from './data/movie.datasource';
 export class MovieService {
 
 
-  getMovies():Movie[] {
-    return Movies;
+  getMovies(): Observable<Movie[]>  {
+    return of(Movies);
   }
 
   constructor() { }
